@@ -1,0 +1,32 @@
+p em
+{
+    color : cadetblue;
+}
+h1:hover
+{
+    color : crimson;
+    font-size : 3em;
+    font-family : "Consolas";
+}
+
+img 
+{
+    vertical-align: top;
+}
+
+span
+{
+    vertical-align: sub;
+    font-size: 0.5em;
+}
+
+#shadow 
+{
+    font-size : 200px;
+    text-shadow : -0.05em -0.05em 0.05em black;
+}
+
+ol 
+{
+    list-style-type : katakana;
+}
