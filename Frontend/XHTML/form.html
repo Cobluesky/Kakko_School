@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Form Tag</title>
+  </head>
+  <body>
+    <form action="serverurl" method="post">
+      <label
+        >이름
+        <input type="text" value="itstudy" />
+      </label>
+      <br />
+      <label> PW <input type="password" value="itstudy" /> </label>
+      <br />
+      <label>
+        <fieldset>
+          <legend>성별</legend>
+          <!-- name -> Group 설정 서버가 읽을 때는 value를 읽는다. -->
+          남자
+          <input type="radio" name="gender" value="man" checked="checked" />
+          <br />
+          여자 <input type="radio" name="gender" value="woman" />
+        </fieldset>
+
+        <fieldset>
+          <legend>좋아하는 것</legend>
+          독서 <input type="checkbox" name="prefer" value="read" /> 스포츠
+          <input type="checkbox" name="prefer" value="sports" /> 맛있는 거 먹기
+          <input type="checkbox" name="prefer" value="finedining" /> <br />
+          게임 <input type="checkbox" name="prefer" value="game" /> 여행
+          <input type="checkbox" name="prefer" value="travel" />
+        </fieldset>
+      </label>
+      <label>
+        <!-- File은 선택한 value를 읽을 수는 있지만 Set은 불가능 -->
+        이미지 <input type="file" />
+      </label>
+      <label>
+        <p>
+          <input type="button" value="버튼" /> <!-- 기능 정의 필요 -->
+          <input type="submit" value="전송" /> <!-- 폼의 데이터를 서버에 전송할 때 사용 -->
+          <input type="reset" value="취소" /> <!-- 폼의 데이터를 초기화 할 때 사용 -->
+          <input type="hidden" value="숨김" name="data" /> <!-- 눈에 보이지는 않지만 서버에 데이터를 넘길 수 있다. -->
+        </p>
+      </label>
+      <label>
+        <p>
+            <textarea rows="5" cols="30">초기화</textarea>
+        </p>
+      </label>
+      <label>
+        <p>
+            <select name="수량">
+                <option value = "1">1</option>
+                <option value = "2">2</option>
+                <option value = "3">3</option>
+            </select>
+        </p>
+      </label>
+    </form>
+  </body>
+  <!-- 이거 생각해보니까 좀 잘못작성했는데, 무지성으로 Label 태그를 덕지덕지 붙여놨다. 
+    다음부터는 Option이나 Button 같은거에는 Label을 빼는게 좋을 것 같고, 외려 checkbox 같은데에 Label을 넣는게 맞다.-->
+</html>
