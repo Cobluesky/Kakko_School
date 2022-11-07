@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        
+        let score = prompt("점수를 입력");
+        // document.write(score + "\n");
+
+        // if (score >= 80)
+        // {
+        //     document.write("Pass");
+        // }
+
+        // else
+        // {
+        //     document.write("Non Pass");
+        // }
+
+        // let grade = "Unset";
+
+        if (score > 80)
+        {
+            grade = "A";
+        }
+
+        else if (score < 80 && score > 70)
+        {
+            grade = "B";
+        }
+
+        else if (score < 70 && score > 60)
+        {
+            grade = "C";
+        }
+
+        else
+        {
+            grade = "F";
+        }
+
+        document.write(grade);
+
+    </script>
+  </body>
+</html>

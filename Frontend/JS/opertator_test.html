@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Test</title>
+  </head>
+  <body>
+    <script>
+      /* //전체적으로 비트 연산과 진법 변환에 대한 추가적인 이해가 필요. 관련 토이프로젝트를 한 번 진행해보는게 좋겠다.  
+        console.log(~14); // 1의 보수 (14 + 1) - 부호 반대, +!
+        console.log(27 & 14); // 10
+        console.log(27 | 14); // 31
+        console.log(27 ^ 14); // 21
+        console.log(14 << 2); //한 번 밀 때마다 2배씩 증가
+        console.log(14 >> 2); //동일 (1 / 2)
+        console.log(14 >>> 2);
+        console.log(-14 >>> 2); //음수의 경우 결과값이 다름*/
+
+      /*//앞이 false면 뒤는 확인하지 않음
+      var x = 10;
+      let result = x > 10 && x++;
+      document.write(x + "\n");
+
+      //JS는 Boolean이 아니어도 논리 연산을 할 수 있지만 가급적으로 안하는 것을 추천
+      result = true && 10;
+      document.write(result);
+
+      let data1 = null;
+      let data2 = [3, 4];
+      
+      //data1 Falsy라면 data2가 대입, Truthy라면 data1이 대입.
+      result = data1 || data2;
+      document.write(result);
+
+      //삼항연산자 연습
+      let a1 = 20;
+      let a2 = 30;
+      let max = (a1 > a2) ? a1 : a2;
+      console.log(max);
+
+      //nullish operator
+      let null_data1 = 0;
+      let null_data2 = "JS";
+
+      //0은 Falsy 값이라서 data2가 남는다.
+      let null_result = null_data1 || null_data2;
+      console.log("Null Result : " + null_result);
+
+      //data1이 null이 아니기 때문에 data1이 남는다.
+      //?? : falsy를 판단하지 않고 데이터의 존재여부만 확인한다.
+      null_result = null_data1 ?? null_data2;
+      console.log("Null Result2 : " + null_result); */
+
+      let str = "Alpha";
+      console.log (typeof str);
+
+      let str_ar = ["Alpha", "Beta", "Gamma"];
+      console.log ("Delta" in str_ar);
+    </script>
+  </body>
+</html>

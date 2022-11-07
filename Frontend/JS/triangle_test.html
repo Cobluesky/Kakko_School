@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triangle Test</title>
+  </head>
+  <body>
+    <script>
+      // 2022-11-07 반복 / 제어문 연습용 삼각형 제작 문제
+
+      let height; // 높이
+      let line, space, pos; // 전체 줄 갯수, 공백, 숫자 출력될 위치
+      var intNumCnt = 0; // 출력할 숫자
+
+      height = 6; // 높이지정. 나중에 입력으로 바꿔야할듯?
+
+      var checkIntNumCnt = () =>
+        // 숫자가 9를 넘으면 0으로 돌려주어야 하므로 해당 함수
+        {
+          if (intNumCnt > 9) {
+            intNumCnt = 0;
+            return intNumCnt;
+          }
+        };
+
+      for (
+        space = 0;
+        space <= height;
+        space++ // 첫 줄 앞 공백.
+      ) {
+        document.write("\u00A0"); // 공백문자
+      }
+
+      document.write(intNumCnt);
+      document.write("</br>");
+      intNumCnt++; // 숫자 올리기
+
+      for (
+        line = 1;
+        line <= height - 2;
+        line++ // 전체 반복 횟수 결정
+      ) {
+        checkIntNumCnt(intNumCnt); // 숫자 체크
+
+        for (
+          space = 0;
+          space <= height - line;
+          space++ // 2번째 줄부터 왼쪽 공백 체크
+        ) {
+          document.write("\u00A0");
+        }
+
+        document.write(intNumCnt);
+        intNumCnt++;
+
+        for (
+          space = 0;
+          space < line * 2 - 1;
+          space++ // 2번째 줄부터 오른쪽 공백 체크
+        ) {
+          document.write("\u00A0");
+        }
+
+        checkIntNumCnt(intNumCnt);
+        document.write(intNumCnt);
+        intNumCnt++;
+        document.write("</br>");
+      }
+
+      for (
+        pos = 0;
+        pos < height * 2 - 1;
+        pos++ // 마지막줄 출력
+      ) {
+        checkIntNumCnt(intNumCnt);
+        document.write(intNumCnt);
+
+        intNumCnt++;
+      }
+
+      document.write("</br>");
+    </script>
+  </body>
+</html>
