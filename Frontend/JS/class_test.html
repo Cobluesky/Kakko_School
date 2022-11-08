@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Member {
+        //Class 안에 Method를 만들 때에는 function 생략
+        getName() {
+          return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+      }
+
+      //클래스의 인스턴스
+      let member = new Member();
+      member.setName("Alpha");
+      console.log(member.getName());
+      
+      Member.prototype.getFood = function() {return "선호하는 음식";}
+      console.log(member.getFood());
+
+      function f() 
+      {
+        console.log("there is no parameter");
+      }
+
+      function f(n)
+      {
+        console.log("there is parameter");
+      }
+
+      f(10); //값이 덮어씌워진다. 다형성?? 오버라이딩이 안된다??
+      f();
+    </script>
+  </body>
+</html>
