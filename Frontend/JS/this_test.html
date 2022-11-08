@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let testObj =
+        {
+            "name" : "alpha",
+            "getName" : function ()
+            {
+                return this.name;
+            }
+        }
+
+        console.log(testObj.getName());
+
+        //매개변수가 없는 생성자를 default constructor라고 한다.
+        let singer = function ()
+        {
+            this.name = "Nameless";
+            this.song = "Songless";
+        }
+
+        var obj1 = new singer();
+        console.log(obj1);
+
+        let developer = function (name, lang)
+        {
+            this.name = name;
+            this.lang = lang;
+        }
+
+        var John = new developer ("John", "Python");
+        var Avigale = new developer ("Avigale", "Node.js");
+
+        console.log(John);
+        console.log(Avigale);
+        </script>
+</body>
+</html>

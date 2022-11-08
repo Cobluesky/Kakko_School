@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let func_1 = () => 
+        // {
+        //     for (var i = 1; i < 10; i++)
+        //     {
+
+        //         if (i % 3 == 0)
+        //         {
+        //             return;
+        //         }
+        //         document.write(i + "</br>"); 
+        //     }
+        // }
+
+        // func_1();
+
+        // let func_2 = (firstParam, secondParam) =>
+        // {
+        //     return firstParam + " " + secondParam;
+        // }
+
+        // document.write(func_2("Hello", "World!"));
+        // document.write(func_2(func_2("</br> Hello", "World!"), "Programmed For Work"));
+
+        //SetInterval(Func, Freq) : 주기마다 함수를 호출해서 실행하는 함수
+        //Callback의 예시
+        // setInterval(() =>
+        // {
+        //     console.log("HELLO!")
+        // }, 2000); //Freq = ms
+
+        // function outerTestFunction () //Nested Function
+        // {
+
+        //     function innerTestFunction ()
+        //     {
+
+        //     }
+
+
+        //     return innerTestFunction; //High Order Function
+        // }
+
+        // function outerTestFunction2 ()
+        // {
+        //     let x = 0;
+
+        //     return () => 
+        //     {
+        //         x++;
+        //         console.log(x);
+        //     }
+        // }
+
+        // //함수를 리턴받아 저장, Closure
+        // var result = outerTestFunction2();
+
+        // //리턴받은 함수를 호출하면 outer안에 있는 x 값이 수정됨
+        // //작업한 내역을 함수안에 저장하면서 작업을 계속하는 것이 가능
+        // result();
+        // result();
+
+        const func_3 = function (n = 1) // 기본값 설정
+        {
+            return Math.PI * Math.pow(n, 2);
+
+        }
+
+        console.log(func_3(10));
+        console.log(func_3());
+    </script>
+</body>
+</html>

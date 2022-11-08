@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //? 뒷 부분을 Query String 또는 parameter라고 함
+        //JS에서 데이터를 전송할 때 숫자와 영문외의 다른글자가 있으면 인코딩해야함.
+        var url = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=테스트";
+
+        //최근에는 서버 렌더링을 잘 사용하지 않기 때문에 더욱 중요하다. 
+        var encodedUrl = encodeURI(url);
+        console.log(encodedUrl);
+    </script>
+
+    
+</body>
+</html>

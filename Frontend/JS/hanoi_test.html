@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let hanoiCnt = 0;      //시행횟수    
+       
+      function hanoi(from, to, numbers) { //시작, 옮길 곳, 원반 갯수
+
+        if (numbers == 1) {
+          return;
+        }
+
+        let whereIsEmpty = 6 - from - to;
+        hanoi(from, whereIsEmpty, numbers - 1);
+        hanoiCnt++;
+        hanoi(from, to, numbers - 1);
+      }
+
+      hanoi(1, 2, 5); //하노이의 최적 시행수는 2^n - 1번이다. 현재 결과값이 좀 이상하게 나오는데... 얼추맞다. 대체왜그러지??
+      console.log(hanoiCnt);
+    </script>
+  </body>
+</html>

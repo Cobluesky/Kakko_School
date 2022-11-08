@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function func_1() {
+        document.write("Function Test");
+      }
+      func_1();
+
+      //let으로 만들면 hoisting 불가능
+      let func_2 = function () {
+        document.write("Function Keyword");
+      };
+      func_2();
+
+      //화살표 함수 - 함수를 다른 함수에 대입할 때 이용
+      //최근 메인스트림. 추가적 학습 필요
+      let func_3 = () =>
+      {
+        document.write("Arrow Function Test")
+      }
+      func_3();
+
+      let func_4 = (testIntVar) =>
+      {
+        for (var i = 0; i < testIntVar; i++)
+        {
+            document.write(i + "번 출력");
+        }
+      }
+      func_4(5);
+
+      //매개변수가 2개 이상인 경우에는 이름을 별도로 주어서 하나로 묶는 것을 고려하는 것이 좋다.
+      //순서를 틀리면 에러가 나기 때문에
+      let func_5 = (testIntVar, testPrintStr) =>
+      {
+        for (var i = 0; i < testIntVar; i++)
+        {
+           document.write(testPrintStr + " " + i + "번째");
+        }
+      }
+      func_5(5, "Goodbye World!");
+
+      let testIntData = 10;
+      let testIntArr = [100, 200, 300]
+      let testStrData = "String"; //문자열은 세부 데이터 변경불가
+
+      let func_6 = (testArgment) =>
+      {
+        document.write("Arg : " + testArgment);
+        testArgment = 20;
+      }
+      
+      func_6(testIntData);
+      document.write("</br>" + testIntData);
+
+      let func_7 = (testIntArr) =>
+      {
+        document.write("Array : " + testIntArr);
+        testIntArr[0] = 2030;
+      }
+
+      func_7(testIntArr)
+      document.write("</br>" + testIntArr);
+
+    </script>
+  </body>
+</html>

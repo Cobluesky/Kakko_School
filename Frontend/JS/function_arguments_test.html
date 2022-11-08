@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //화살표 함수에는 arguments를 사용 불가
+        let func_1 = function (number, string)
+        {
+            for (var i = 0; i < arguments[0]; i++)
+            {
+                document.write(arguments[1]);
+            }
+        }
+
+        func_1(5, "Hello! </br>");
+    </script>
+</body>
+</html>

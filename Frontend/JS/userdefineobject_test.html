@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {"name" : "alpha", "color" : "white", "gender" : "male",
+        "info" : function ()
+        {
+            return this.name + ":" + this.color + ":" + this.gender;
+        }
+        }
+        console.log(obj.name);
+        console.log(obj['color']);
+        console.log(obj.info());
+
+        //obj의 모든 속성을 attr에 순서대로 문자열 형태로 대입
+        for (attr in obj)
+        {
+            console.log(obj[attr]);
+        }
+
+        console.log("name" in obj)
+        console.log("age" in obj)
+
+        with(obj)
+        {
+            console.log("WITH : " + name)
+        }
+
+        obj.favorite = "Playing Games";
+        obj.color = "Cyan";
+        delete(obj.gender);
+
+        console.log(obj)
+    </script>
+
+</body>
+</html>
