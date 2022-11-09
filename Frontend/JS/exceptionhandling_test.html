@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      try {
+        var testAr = new Array(430000);
+        throw new Error("Error Occurred");
+      } catch (e) {
+        console.log(e.name, e.message);
+        console.log("Error.");
+        
+      } finally {
+        console.log("Connection closed."); //무조건 실행
+      }
+
+      console.log("U've got message");
+    </script>
+  </body>
+</html>

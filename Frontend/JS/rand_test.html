@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Test</title>
+</head>
+<body>
+    <script>
+        //난수 생성. math.random
+        //범위는 0.0에서 1.0
+        let getRandom = (min, max) =>
+        {
+            let randResult = Math.floor((Math.random() * (max - min - 1)) + min);
+            alert(randResult); // 최대 최소 값 사이에서 랜덤 뽑기
+        }
+
+        let counter = 0;
+        let randIntArray = [];
+
+        while (counter < 10)
+        {
+            let randInt = Math.random();
+            randIntArray.push(randInt);
+            counter++;      
+        }
+
+        console.log(randIntArray);
+
+        //getRandom(0, 100);
+
+        let optionsArr = ["A", "B", "C", "D", "E"];
+        let optionsRandIntSeed = Math.random() * 10;
+        let optionsRandInt = Math.round(optionsRandIntSeed % optionsArr.length);
+
+        alert(optionsArr[optionsRandInt]); // 랜덤으로 배열 무작위 선정하기
+        console.log(optionsArr.length);
+    </script>
+</body>
+</html>

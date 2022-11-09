@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {"name" : "adam", "job" : "singer"};
+        let objAr = ["We", "Come too far", "who get up", "who we are"]
+        let result = objAr[Symbol.iterator];
+        if (result === undefined)
+        {
+            console.log("고장남")
+        }
+        else
+        {
+            console.log("작동함");
+            let iter = objAr[Symbol.iterator]();
+            console.log(iter.next());
+
+        }
+
+        for (attr of objAr) // in은 속성을 추출, of는 데이터를 추출
+        {
+            console.log(attr);
+        }
+
+        //문자열도 순회 가능
+        var str = "To be or not to be";
+        for (attr of str)
+        {
+            console.log(attr);
+        }
+</script>
+
+</body>
+</html>

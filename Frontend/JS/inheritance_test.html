@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance Test</title>
+  </head>
+  <body>
+    <script>
+      class Main {
+        constructor(name = "")
+        {
+            this.name = name;
+        }
+        doMainThing() {
+          console.log("do main");
+        }
+      }
+
+      class Sub extends Main {
+        constructor(name = "", something = "something") {
+          super(name);
+          this.something = something;
+        }
+
+        //상위 클래스 메소드 재정의. overriding
+        doMainThing()
+        {
+            super.doMainThing(); // 상위 클래스 메소드 호출
+            console.log("do sub -- overriding Test");
+        }
+      }
+      let sub = new Sub("NAME IS SUB", "SOME");
+      sub.doMainThing();
+      console.log(sub);
+    </script>
+  </body>
+</html>

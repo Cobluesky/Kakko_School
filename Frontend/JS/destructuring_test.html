@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조 분해 할당</title>
+    <script>
+        //배열은 순차대입
+        //Iterator를 준수하기 때문
+        var ar = [100, 200, 300, 400];
+        let [one, two, three, four] = ar;
+        console.log(one);
+
+        //Iterator가 없기 때문에 이름을 보고 대입
+        var obj = {"name" : "Alpha", "age" : "23"};
+        let {age, name} = obj;
+        console.log(name, age);
+
+        //param을 obj로 묶어서 받는다.
+        let display = (testObj) => {
+            let {msg, n} = testObj
+            for (let i = 0; i < n; i++)
+            {
+                console.log(msg);
+            }
+        }
+
+        //obj는 iterator가 없기 때문에 이름을 가지고 따라간다.
+        display({n : 3, msg : "Hello!"});
+
+    var ar2 = [100, 200, 300, 400]
+    var insObj = {"name" : "Beta", "age" : "13", "hobby" : "eat some delicious foods", "live" : "new york"};
+
+        let [first, ...etc] = ar2;
+        console.log(first);
+        console.log(etc)
+
+        let {name1, age1, ...etc2} = insObj;
+        console.log(name1, etc2)
+
+        function rest({name1, ...etc3})
+        {
+            console.log(etc3);
+        }w
+
+        rest(insObj);
+
+        let [a, b, c, d, e = 500] = ar2;
+        console.log(e);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

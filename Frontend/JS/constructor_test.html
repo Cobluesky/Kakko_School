@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Test</title>
+</head>
+<body>
+    <script>
+        const Person = class
+        {
+            
+            constructor(idNo = 1, name = "", tel = "", phone = "")
+            {
+                this.idNo = idNo;
+                this.name = name;
+                this.tel = tel;
+                this.phone = phone;
+            }
+
+            //클래스가 호출하는 Method
+            //this가 없음
+            //prototype에 추가하는 것이 아니라 class에 추가한다
+            //인스턴스는 prototype에 추가하는 것만 호출이 가능하다.
+            static disp () 
+            {
+                return "STATIC";
+            }
+
+            getIdNo ()
+            {
+                return this.idNo;
+            }
+
+            getName ()
+            {
+                return this.name;
+            }
+
+            getTel ()
+            {
+                return this.tel;
+            }
+
+            setIdNo (idNo)
+            {
+                this.idNo = idNo;
+            }
+
+            setName (name)
+            {
+                this.name = name;
+            }
+
+            setTel (tel)
+            {
+                this.tel = tel;
+            }
+        }
+
+        let person = new Person();
+        person.setIdNo(2);
+        person.setName("Alpha");
+        person.setTel("111111111");
+
+        let person2 = new Person(3, "Beta", "222222222");
+        let person3 = new Person(4, "Gamma", "33333333333");
+        console.log(Person.disp()); //인스턴스는 Static Method를 호출 할 수 없다.
+
+    </script>
+
+
+</body>
+</html>

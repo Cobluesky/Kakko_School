@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "./import_module_test.js" type = "module"></script>
+    <title>Module I/O Test</title>
+</head>
+<body>
+    <script>
+        var obj = {"name" : "alpha", "age" : "23"};
+        //일반적으로 toString은 직접 호출 X, 출력하는 메소드에 객체 이름만 대입하면 자동으로 호출
+        //클래스를 만들 때 toString을 오버라이딩하면 출력할 때 객체 이름만으로 메소드 호출 가능
+
+        console.log(obj);
+    </script>
+</body>
+</html>
