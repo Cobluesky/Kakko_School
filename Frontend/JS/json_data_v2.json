@@ -1,0 +1,8 @@
+{
+    "number" : 3,
+    "something" : [
+        {"name" : "Alpha", "context" : "What"},
+        {"name" : "Beta", "context" : "IS"},
+        {"name" : "Gamma", "context" : "That"}
+    ]
+}

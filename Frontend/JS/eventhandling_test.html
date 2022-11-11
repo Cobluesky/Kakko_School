@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHandling Test</title>
+</head>
+<body>
+    <div id = "someDiv">
+        I Don't Know What Is This.
+    </div>
+    <div id = "whatDiv">
+        I Have No Idea About This.
+    </div>
+    <script>
+        window.addEventListener("load", (e) => 
+        {
+            document.getElementById("someDiv").innerHTML = "이벤트 처리";
+            for (let i = 0; i < 15; i++)
+            {
+
+                document.getElementById("whatDiv").innerHTML += "<h1>INFINITY SCROLLS!!!</h1>";
+            }
+
+            window .add(addEventListener("scroll", (e) => 
+            {
+                // 스크롤 하는 위치와 문성의 높이가 같을 때
+                // 가장 아래에서 스크롤을 할 때
+                var supportPageOffset = window.pageXOffset !== undefined;
+                var isCSS1Compat = ((document.compatMode || "") === "CSS1 Compat");
+                var scrollTop = supportPageOffset ? document.documentElement.scrollTop :
+                    document.body.scrollTop;
+
+                var scrollHeight = scrollTop + window.innerHeight; // 스크롤하는 높이
+                var documentHeight = document.body.clientHeight; // 문서의 높이
+
+                //스크롤하는 위치가 문서의 높이보다 크거나 같다면
+                if (scrollHeight >= documentHeight)
+                {
+                    alert("Miyao.");
+                }
+            }))
+        })
+    </script>
+</body>
+</html>

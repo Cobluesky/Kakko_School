@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("load", (e) => {
+        //필요한 DOM 찾아오기
+        let csv = document.getElementById("csv");
+        let jsonVar = document.getElementById("json");
+        let jsonVarV2 = document.getElementById("json_v2");
+        let content = document.getElementById("content");
+
+        //csv 버튼을 눌렀을떼
+        csv.addEventListener("click", (e) => {
+          let request = new XMLHttpRequest();
+          //연결 준비 - 첫번째는 요청 방식
+          request.open("GET", "data.csv");
+          //요청 - 데이터와 함께 전송해야 하는데 지금은 없음
+          request.send("");
+
+          //정상 처리 시
+          request.addEventListener("load", () => {
+            //XML 이외의 데이터 읽기
+            //   alert(request.responseText);
+            let ar = request.responseText.split(",");
+
+            for (names of ar) {
+              content.innerHTML += "<p>" + names + "</p>";
+            }
+          });
+
+          //에러 발생 시
+          request.addEventListener("error", () => {
+            alert("DATA ERROR");
+            alert(request.status);
+          });
+        });
+
+        //csv 버튼을 눌렀을떼
+        jsonVar.addEventListener("click", (e) => {
+          let request = new XMLHttpRequest();
+          //연결 준비 - 첫번째는 요청 방식
+          request.open("GET", "json_data_v2.json");
+          //요청 - 데이터와 함께 전송해야 하는데 지금은 없음
+          request.send("");
+
+          //정상 처리 시
+          request.addEventListener("load", () => {
+            //XML 이외의 데이터 읽기
+            //   alert(request.responseText);
+            let result = JSON.parse(request.responseText);
+            content.innerHTML += "<p>Number : " + result.number + "</p>";
+            content.innerHTML += "<p>Something : " + result.something + "</p>";
+          });
+
+          //에러 발생 시
+          request.addEventListener("error", () => {
+            alert("DATA ERROR");
+            alert(request.status);
+          });
+        });
+
+        jsonVarV2.addEventListener("click", (e) => {
+          let request = new XMLHttpRequest();
+          //연결 준비 - 첫번째는 요청 방식
+          request.open("GET", "json_data_v2.json");
+          //요청 - 데이터와 함께 전송해야 하는데 지금은 없음
+          request.send("");
+
+          //정상 처리 시
+          request.addEventListener("load", () => {
+            //XML 이외의 데이터 읽기
+            //   alert(request.responseText);
+            let result = JSON.parse(request.responseText);
+
+            let number = result.number;
+            let something = result.something;
+
+            content.innerHTML = "Data Number :" + number;
+            for (some of something)
+            {
+                content.innerHTML += "<p>" + some.context + "</p>";
+            }
+          });
+
+          //에러 발생 시
+          request.addEventListener("error", () => {
+            alert("DATA ERROR");
+            alert(request.status);
+          });
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <button id="csv">csv 읽기</button>
+    <button id="json">json 읽기</button>
+    <button id="json_v2">Advanced JSON READING</button>
+    <div id="content">print</div>
+  </body>
+</html>

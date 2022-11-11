@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Test</title>
+  </head>
+  <body>
+    <p id="paragraph">Event Test</p>
+    <button id="btn">Button</button>
+    <script>
+      let p1 = document.getElementById("paragraph");
+      let btn = document.getElementById("btn");
+      p1.addEventListener("click", (e) => {
+        for (attr in e) {
+          console.log(attr + ":" + e[attr]);
+        }
+        alert("Click this circles");
+      });
+
+      btn.addEventListener("click", (e) => {
+        //강제 이벤트 발생
+        p1.click();
+      });
+    </script>
+
+    <form action="loginProcessing" method="post" id="userInfoCheck">
+      <p>ID <input type="text" name="inputId" id="id" /></p>
+      <p>
+        PW
+        <input
+          type="password"
+          name="inputPw"
+          id="pw"
+          onkeyup="return passwordChanged();"
+        />
+        PW CHECK
+        <input
+          type="password"
+          name="inputPwCheck"
+          id="pwCheck"
+          onkeyup="return passwordSameCheck();"
+        />
+      </p>
+
+      <p id="strength">PW Strength</p>
+      <p id="sameCheck">비밀번호가 일치하지 않습니다.</p>
+      <input type="submit" value="login" />
+    </form>
+    <script>
+      let form = document.getElementById("userInfoCheck");
+      let id = document.getElementById("id");
+      let pw = document.getElementById("pw");
+      let pwCheck = document.getElementById("pwCheck");
+      let pwVal = document.getElementById("passwordVal");
+      let pwSameCheck = document.getElementById("sameCheck");
+      let regExp = /^[a-z0-9@.]{8,16}$/;
+      let sendingFlag = 0;
+
+      function passwordSameCheck() {
+        if (pw.value === pwCheck.value) {
+          pwSameCheck.innerHTML =
+            '<span style = "color : cyan"> 비밀번호가 일치합니다. </span>';
+          sendingFlag = 1;
+        } else {
+          pwSameCheck.innerHTML =
+            '<span style = "color : red"> 비밀번호가 일치하지 않습니다. </span>';
+          sendingFlag = 0;
+        }
+      }
+
+      function passwordChanged() {
+        var strength = document.getElementById("strength");
+        var strongRegex = new RegExp(
+          "^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$",
+          "g"
+        ); //길이 14이상, 대소문자, 기호, 텍스트 조합 O
+        var mediumRegex = new RegExp(
+          "^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$",
+          "g"
+        ); //길이 10이상, 대소문자, 기호, 텍스트 조합 X
+        var enoughRegex = new RegExp("(?=.{8,}).*", "g"); //길이 10 미만, 조합 X
+
+        if (pw.value.length == 0) { // 비밀번호 체크 정규식
+          strength.innerHTML = "비밀번호를 입력해주세요.";
+          sendingFlag = 0;
+        } else if (false == enoughRegex.test(pw.value)) {
+          strength.innerHTML = "비밀번호 길이가 짧습니다.";
+          sendingFlag = 0;
+        } else if (strongRegex.test(pw.value)) {
+          strength.innerHTML =
+            '<span style="color:green">강력한 비밀번호입니다.</span>';
+          sendingFlag = 1;
+        } else if (mediumRegex.test(pw.value)) {
+          strength.innerHTML =
+            '<span style="color:orange">적당한 비밀번호입니다.</span>';
+          sendingFlag = 1;
+        } else if (pw.value.length > 16) {
+          strength.innerHTML = "비밀번호는 16자를 넘어갈 수 없습니다.";
+          sendingFlag = 0;
+        } else {
+          strength.innerHTML =
+            '<span style="color:red">취약한 비밀번호입니다.</span>';
+          sendingFlag = 0;
+        }
+      }
+
+      form.addEventListener("submit", (e) => { // 유효성 검사
+        //아이디 입력란 찾아오기
+        if (id.value.trim().length === 0) {
+          // trim 해주기
+          alert("Id is required value");
+          e.preventDefault(); // 기본 이벤트를 제거
+        } else {
+        }
+
+        if (pw.value.trim().length === 0) {
+          alert("PW is required value.");
+          e.preventDefault();
+        } else {
+        }
+
+        if (pwCheck.value !== pw.value) {
+          e.preventDefault();
+        }
+
+        if (sendingFlag !== 1) {
+            e.preventDefault();
+        }
+      });
+
+      //비밀번호가 비어 있으면 X
+      //비밀번호가 확인란을 만들어서 비밀번호와 확인란이 일치하지 않으면 전송 X -- O
+      //비밀번호의 패턴이 맞지 않으면 전송이 되지 않도록 작성 -- 8-16자 -- O
+      //비밀번호의 패턴을 보고 강한 비밀번호 인지 판별 -- O
+    </script>
+  </body>
+</html>
