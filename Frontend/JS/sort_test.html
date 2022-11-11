@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    //   var testArr1 = ["A", "B", "C", "D"];
+    //   var testArr2 = [3301, 3100, 24000, 200];
+
+    //   console.log(testArr1.sort());
+    //   console.log(testArr2.sort());
+
+    //   console.log(
+    //     testArr2.sort((a, b) => {
+    //       return b - a;
+    //     })
+    //   ); // 정수 내림차순
+
+    //   console.log(
+    //     testArr1.sort((a, b) => {
+    //       if (a < b) {
+    //         return 1;
+    //       } else if (a == b) {
+    //         return 0;
+    //       } else {
+    //         return -1;
+    //       }
+    //     })
+    //   );
+
+      function Game(title, price, date)
+      {
+        this.title = title;
+        this.price= price;
+        this.date = date;
+
+
+        this.toString = function ()
+        {
+            return this.title + " " + this.price + " " + this.date;
+        }
+      }
+
+      var Games = 
+      [
+        new Game("A", "14900", "2022-11-30"),
+        new Game("B", "23900", "2012-02-10"),
+        new Game("AC", "54900", "2018-04-28"),
+        new Game("ASC", "4900", "2017-12-31")
+
+      ];
+
+    //   console.log(Games);
+
+    //   console.log(Games.sort((a, b) => 
+    //   {
+    //     return a.price - b.price;
+    //   }));
+
+      //1 : name의 오름차
+      //2 : name의 내림차
+      //3 : price의 오름차
+      //4 : price의 내림차
+      //5 : date의 오름차
+      //6 : date의 내림차
+      //나머지 - 입력순서
+
+      let sortingFlag = prompt("정렬 방법을 선택 : ");
+      let result;
+
+      switch (sortingFlag)
+      {
+        case 1:
+            console.log(Games.sort((a, b) =>
+            {
+                if (a.title > b.title)
+                {
+                    return 1;
+                }
+
+                else 
+                {
+                    return -1;
+                }
+            }));
+            break;
+
+            case 2:
+            console.log(Games.sort((a, b) =>
+            {
+                if (a.title < b.title)
+                {
+                    return 1;
+                }
+
+                else 
+                {
+                    return -1;
+                }
+            }));
+            break;
+
+            case 3:
+                console.log(Games.sort((a, b) =>
+                {
+                    return a.price - b.price;
+                }));
+            break;
+
+            case 4:
+                console.log(Games.sort((a, b) =>
+                {
+                    return b.price - a.price;
+                }));
+            break;
+
+            case 5:
+                console.log(Games.sort((a, b) =>
+                {
+                    return a.date - b.date;
+                }));
+            break;
+
+            case 6:
+                console.log(Games.sort((a, b) =>
+                {
+                    return b.date - a.date;
+                }));
+            break;
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var testArray1 = ["HTML", "CSS", "JS", "React"]
+        var testArray2 = ["MariaDB", "NOSql", "Spring"]
+
+        var subjects = testArray1.concat(testArray2);
+
+        console.log(subjects);
+
+        for (subject of subjects)
+        {
+            console.log(subject);
+        }
+
+        //처음에 데이터를 추가하고 처음 데이터를 제거
+        subjects.unshift("node");
+        subjects.shift();
+
+        //마지막 데이터 추가 마지막 데이터 제거
+        subject.push("last something");
+        subjects.pop();
+    </script>
+</body>
+</html>

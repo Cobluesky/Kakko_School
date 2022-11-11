@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var testStr = "           Black Priday  ";
+
+        console.log('Length : ' + testStr.length);
+        console.log('0번째 문자 : ' + testStr.charAt(0));
+        console.log('0번째 문자 코드 : ' + testStr.charCodeAt(0)); //대문자 ASC 65 소문자 AS 97 32차이 난다
+
+        console.log('대문자 변환 : ' + testStr.toUpperCase()); 
+        console.log('소문자 변환 : ' + testStr.toLowerCase()); 
+        console.log('공백제거 : ' + testStr.trim());
+
+        let ascTransferTest = "A".charCodeAt(0);
+        let ascTransferTestLower = String.fromCodePoint(ascTransferTest + 32);
+        console.log(ascTransferTestLower);
+
+        console.log(testStr.indexOf("B")); //앞부터 인덱스찾기
+        console.log(testStr.lastIndexOf("B")) //뒤부터 인덱스찾기, 못찾으면 음수
+
+        //문자열 분할
+        //패턴을 가지고 분할해서 배열로 생성 - split
+
+        //위치를 가지고 분할해서 문자열로 생성 - substring
+        //substring은 매개변수가 1개이면 그 이후를 전부 잘라 리턴
+
+        //주민번호 뒷자리 마스킹 연습?
+        //Case 1
+        let maskTestStr = "111111-2222222";
+        let splitStr = maskTestStr.split("-");
+        let maskedStr = splitStr[1].replaceAll(/[0-9]/g, "*");
+        let newStr = splitStr[0] + "-" + maskedStr;
+
+        console.log('PreReplaced Str : ' + maskTestStr);
+        console.log('Replaced Str : ' + newStr);
+
+        //Case 2
+        let preMaskedStr = "3333334444444";
+        let position = preMaskedStr.charAt(8);
+        let maskedStr2 = preMaskedStr.substr(position, preMaskedStr.length)
+
+        //옛날부터 지나온 날 수 구하기
+        let today = new Date();
+        let theDay = new Date(1999, 01, 01);
+        let timeFlows = today.getTime(); - theDay.getTime();
+        let timeFlowsDay = timeFlows / (1000 * 60 * 60 * 24);
+        console.log('흐른 날들 : ' + timeFlowsDay);
+        console.log(theDay);
+    </script>
+</body>
+</html>

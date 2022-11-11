@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "display"></div>
+    <script>
+        var map = new Map();
+        let idx = 0;
+        //Map은 동일한 key에 데이터를 여러번 저장하면 마지막 데이터로 수정
+        map.set("name", "adam");
+        map.set("name", "아담");
+
+        console.log(map);
+
+        console.log(map.get("name"));
+
+        for (key of map.keys())
+        {
+            console.log(key);
+        }
+        var something = ["A", "B", "C"];
+    
+        setInterval(() => {
+            document.getElementById("display").innerHTML =
+                something[idx % something.length];
+            idx++;
+        }, 3000);
+
+        var os = [""];
+        for (o of os)
+        {
+            if (navigator.userAgent.toLowerCase().indexOf("chrome") >= 0) // Client에 작성 X
+            {
+                alert(navigator.userAgent);
+                break;
+            }
+
+        }
+    </script>
+</body>
+</html>

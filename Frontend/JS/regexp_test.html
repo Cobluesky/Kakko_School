@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regexp</title>
+</head>
+<body>
+    <script>
+        var str = "JS Reg Exp";
+        let regExp = /JS/i;
+        console.log(regExp.test(str));
+        
+        var jumin1 = "123456-1234567";
+        var jumin2 = "123456-123456";
+        var jumin3 = "1p3456-1234567";
+
+        let juminCheckRegExp = /\d{6}-\d{7}/;
+        console.log(juminCheckRegExp.test(jumin1));
+        console.log(juminCheckRegExp.test(jumin2));
+        console.log(juminCheckRegExp.test(jumin3));
+
+        //입력데이터의 유효성 검사
+        //문자열과 정규표현식 이용
+
+        //텍스트 마이닝 할 때 정규 표현식에 해당하는 데이터를
+        //다른 데이터로 치환하는 경우가 있음
+
+        let set = new Set();
+        set.add("JavaScript");
+        set.add("Java");
+        set.add("JavaScript");
+        console.log(set);
+    </script>
+</body>
+</html>
