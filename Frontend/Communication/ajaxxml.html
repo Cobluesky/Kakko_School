@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX - XML</title>
+</head>
+<body>
+    <div id = "display">
+        <button id = "btn">XML Something</button>
+    </div>
+    <script>
+        window.addEventListener("load", (e) =>
+        {
+            let btn = document.getElementById("btn");
+            let display = document.getElementById("display");
+            btn.addEventListener("click", (e) =>
+            {
+                let request = new XMLHttpRequest();
+                request.open('GET', './resources/data.xml');
+                request.send('');
+                request.addEventListener("load", () => 
+                {
+                    //특정 태그 추출
+                    let xmlData = request.responseXML;
+                    //태그의 배열
+                    let names = xmlData.getElementsByTagName("name");
+                    //순회하며 추출
+                    for (let i = 0; i < names.length; i++)
+                    {
+                        var name = names[i].childNodes[0].nodeValue;
+                        display.innerHTML += name
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

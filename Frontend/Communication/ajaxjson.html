@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX - JSON Parsing</title>
+</head>
+<body>
+    <div id = "display">
+        <button id = "btn">JSON Data Something</button>
+        String Something
+    </div>
+    <div id = "content">
+
+    </div>
+    <script>
+        window.addEventListener("load", (e) =>
+        {
+            let btn = document.getElementById("btn");
+            let display = document.getElementById("display");
+        });
+
+        window.addEventListener("click", (e) =>
+        {
+            let display = document.getElementById("display");
+            let request = new XMLHttpRequest();
+
+            request.open('GET', './resources/data.json');
+            request.send('');
+
+            request.addEventListener("load", () => { //성공
+                //XML 이외의 데이터 읽기
+                //display.innerHTML = request.responseText;
+
+                //받아온 문자열 파싱
+                let result = JSON.parse(request.responseText);
+                display.innerHTML = 
+                    "<p>Datas : " + result.count + "</p>";
+
+                let dataArr = result.documents;
+                
+                //배열 데이터 추출
+                dataArr.forEach((doc) =>
+                {
+                    display.innerHTML += "<h3>Name : " + doc.name + "</h3>";
+                })
+            });
+
+            request.addEventListener("error", (e) => { //먼가 문제임
+                display.innerHTML = e.message;
+            });
+        });
+
+    </script>
+</body>
+</html>

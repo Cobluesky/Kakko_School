@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<Root>
+    <Person>
+        <name>A-Things</name>
+        <gender>Male</gender>
+    </Person>
+    <Person>
+        <name>B-Things</name>
+        <gender>Female</gender>
+    </Person>
+</Root>

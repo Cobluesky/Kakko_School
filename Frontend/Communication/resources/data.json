@@ -1,0 +1,8 @@
+{
+    "count" : 2,
+    "documents" : [
+        {"name" : "alpha", "age" : 24, "hobby" : "Playing Games"},
+        {"name" : "Beta", "age" : 22, "hobby" : "Reading Books"},
+        {"name" : "Gamma", "age" : 32, "hobby" : "Eating Some Delicious Foods"}
+    ]
+}
