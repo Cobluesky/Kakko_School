@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Img 파일만 선택가능한 file 객체 -->
+    <div id = "display" src = "" width = "500px" height = "500px">
+        Text Something
+    </div>
+    <input type = "file" accept = "image/*" id = "imgInput" />
+    <script>
+        let imgInput = document.getElementById("imgInput");
+        let display = document.getElementById("display");
+
+        //imgInput의 선택이 변경되면
+        imgInput.addEventListener("change", (e) => 
+        {
+            let reader = new FileReader();
+
+            if (!imgInput.files[0])
+            {
+                alert ("파일 없음");
+                return;
+            }
+
+            reader.readAsDataURL(imgInput.files[0]);
+
+            reader.addEventListener("load", () =>
+            {
+                alert(reader.result);
+                display.src = reader.result;
+            })
+        })
+    </script>
+</body>
+</html>

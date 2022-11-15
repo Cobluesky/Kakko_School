@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Storage Test</title>
+  </head>
+  <body>
+    <form id="loginForm">
+      ID <input type="text" id="id" /><br />
+      PW <input type="password" id="pw" /><br />
+      <input type="checkbox" id="idsave" /> 아이디 저장
+      <input type="submit" value="Login" />
+    </form>
+    <script>
+      let loginForm = document.getElementById("loginForm");
+      let userId = document.getElementById("id");
+      let pw = document.getElementById("pw");
+      let idSave = document.getElementById("idsave");
+
+      //form 데이터 전송 (submit)
+      loginForm.addEventListener("click", (e) => {
+        if (idSave.checked === true) {
+          localStorage.ids = userId.value;
+        } else {
+          delete localStorage.ids;
+        }
+      });
+
+      //ids 저장되어있으면 가져오기
+      window.addEventListener("load", () => {
+        if (typeof(localStorage.ids) != undefined)
+        {
+            userId.value = localStorage.ids;
+            idSave.checked = true;
+        }
+      });
+    </script>
+  </body>
+</html>
