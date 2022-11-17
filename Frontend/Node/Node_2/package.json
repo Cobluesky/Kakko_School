@@ -1,0 +1,21 @@
+{
+  "name": "node_2",
+  "version": "1.0.0",
+  "description": "Second Node Project, 2022-11-17, Web Server",
+  "main": "run_test.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "Shin Ha Neul",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "file-stream-rotator": "^1.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
+  }
+}

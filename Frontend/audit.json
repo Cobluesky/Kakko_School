@@ -1,0 +1,16 @@
+{
+    "keepSettings": {
+        "type": 2,
+        "amount": 10
+    },
+    "auditFilename": "audit.json",
+    "hashType": "md5",
+    "extension": "",
+    "files": [
+        {
+            "date": 1668668681779,
+            "name": "c:\\Sky_kakko_projects\\Frontend\\Node\\Node_2\\log\\access-20221117.log",
+            "hash": "93c7af0b6726873df07d8e62a5246111"
+        }
+    ]
+}
