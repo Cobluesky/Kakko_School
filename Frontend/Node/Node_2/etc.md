@@ -25,3 +25,8 @@ CRUD는 반드시 Redirect해야한다
 실제 배포할 때에는 빌드한 내용을 배포함
 소스코드를 되도록 수정하지 않고 업데이트를 하거나 환경을 변경하는 것이 가능하도록 프로그램을 제작하는 것이 바람직함.
 이 때문에 DevOps나 CI / CD를 공부하는 것
+
+공통 관심사항 (Common Concern)
+
+템플릿 엔진 - 서버가 처리한 결과를 html에 출력하도록 해주는 것 - 서버 렌더링
+https://velog.io/@hi_potato/Template-Engine-Template-Engine
