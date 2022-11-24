@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's going in now?</title>
+    <link rel="stylesheet" href="/css/common.css" />
+  </head>
+  <body>
+    <h1>Maria DB</h1>
+    <input type="button" value="Data Pull" id="recvBtn" />
+    <div id="content"></div>
+  </body>
+  <script>
+    window.addEventListener("load", (e) => {
+      let recvBtn = document.getElementById("recvBtn");
+      let content = document.getElementById("content");
+      recvBtn.addEventListener("click", (e) => {
+        let request = new XMLHttpRequest();
+        request.open("GET", "/item/all");
+        request.send("");
+        request.addEventListener("load", () => {
+          let data = JSON.parse(request.responseText);
+          if (data.result == true) {
+            content.innerHTML = "<div align = 'center' class = 'body'>";
+            content.innerHTML += "<h2>상품 목록</h2>";
+            content.innerHTML += "</br>";
+            content.innerHTML += "<table border = '1'>";
+            content.innerHTML += "<th align = 'center' width = '80'> ID </th>";
+            content.innerHTML +=
+              "<th align = 'center' width = '300'> NAME </th>";
+            content.innerHTML +=
+              "<th align = 'center' width = '100'> PRICE </th>";
+
+
+            //list key에 있는 데이터를 가져오기
+            let ar = data.list;
+            for (let item of ar) {
+              content.innerHTML += "<tr class = 'record'>";
+
+              content.innerHTML +=
+                "<td align = 'center'>" + item.itemid + "</td>";
+
+              content.innerHTML +=
+                "<td align = 'center'>" + item.itemname + "</td>";
+
+              content.innerHTML +=
+                "<td align = 'center'>" + item.price + "</td>";
+            }
+
+            content.innerHTML += "</table>";
+            content.innerHTML += "</div>";
+          } else {
+            content.innerHTML = "데이터 가져오기 실패";
+          }
+          alert(request.responseText);
+        });
+      });
+    });
+  </script>
+</html>
